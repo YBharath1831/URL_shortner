@@ -1,0 +1,141 @@
+ 
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>URL Shortener</title>
+      <style>
+      .logo{
+          float: left;     
+          height: 50px;     
+          padding: 15px;    
+          font-size: 25px;     
+          font-weight: bold; 
+      }
+      body{
+          width: 100%;     
+          height: 100%;   
+          margin: 0;
+          background-image: url("https://images.pexels.com/photos/7078619/pexels-photo-7078619.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+          background-color:black;
+          background-size:cover;
+          background-repeat: no-repeat;
+      } 
+      a:hover{     
+          text-decoration: none;     
+          background-color: transparent;   
+          color: #f8f8f8;
+      }
+      .header{
+          color:black;     
+          border-color: #080808;     
+          min-height: 50px;    
+          border: 1px solid transparent
+      }
+      .inner-header{
+          width:80%;    
+          margin:auto; 
+      }
+      .header-link{
+          float:right;     
+          font-size:24px;   
+          color:black;  
+          height: 50px;     
+          padding: 15px 15px;    
+          font-size:16px;     
+          font-weight: bold; 
+      }
+      .content{
+          min-height: 400px; 
+      }
+      .banner-image{
+          padding-bottom: 50px;    
+          margin-bottom: 20px;     
+          text-align: center;     
+          color: #f8f8f8;     
+          background-size: cover; 
+      }
+      .inner-banner-image{
+          padding-top: 12%;    
+          width:80%;     
+          margin:auto; 
+      }
+      .banner-content{
+          position: center;    
+          padding-top: 6%;    
+          padding-bottom: 6%;    
+          overflow:hidden;     
+          margin-bottom: 12%;     
+          background-color: rgba(0, 0, 0, 0.7);     
+          max-width: 100%; 
+          content-align:center;
+      }
+      .btn{
+          color: #fff;     
+          background-color: #c9302c;     
+          border-color: #ac2925;       
+          padding: 8px 16px;  
+          margin-left:10px;
+          font-size: 12px;     
+          border-radius: 6px;
+      }
+      ul {
+          display:flex;
+          list-style-type:None;
+          align-content: center;
+      }
+      li{
+          text-align:center;
+      }
+      @media screen and (min-width: 480px) {
+          #leftsidebar {width: 200px; float: left;
+      }
+      #main {margin-left: 216px;}
+  }
+  </style>
+</head>
+<body>
+  <div class="header">
+      <div class="inner-header ">
+          <div class="logo ">
+              <a href="#" style="color:black;"><span class="glyphicon glyphicon-link"aria-hidden="true"></span> URL Shortener</a>
+       </div>
+      </div>
+ </div>
+ <div class="content">
+     <div class="banner-image">
+         <div class="inner-banner-image">
+             <div class="banner-content">
+                 <form method="get">
+                     <h3>Shorten your URL here</h3><br>
+                     <br>
+                     <input type="text" [(ngModel)]="longURL" class="searchTerm" placeholder="Enter long URL to shorten further">
+                      <button type="submit" class="searchButton" (click)="getShortenURL()">Submit</button>
+                  </form>
+              </div>
+          </div>
+        </div>
+        <div style="padding-top: 30px;">Short URL: {{shortURL}}</div>
+
+
+<h1>URLs Available</h1>
+
+<table id="urls">
+  <tr>
+    <th>ID</th>
+    <th>Short URL</th>
+    <th>Long URL</th>
+    <th>Hit Count</th>
+  </tr>
+
+  <tr *ngFor="let item of allURLs">
+    <td>{{item.id}}</td>
+    <td>{{item.shorturl}}</td>
+    <td>{{item.longurl}}</td>
+    <td>{{item.hitcount}}</td>
+  </tr>
+</table>
+</div>                  
+  </body>
