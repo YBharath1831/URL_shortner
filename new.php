@@ -3,7 +3,7 @@ session_start();
 $servername = 'localhost';
 $username = 'user_name';
 $password = 'password';
-$dbname = 'url_short';
+$dbname = 'dbname';
 $base_url='http://'; 
 
 //create database url_short;
